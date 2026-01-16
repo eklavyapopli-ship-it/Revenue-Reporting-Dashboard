@@ -50,7 +50,7 @@ export default function FileUploadPage() {
 
       const data = await res.json();
       setSuccess(data.message);
-      setChunks(data.chunks); // NOTE: server returns "chunks"
+      setChunks(data.test); // NOTE: server returns "chunks"
       console.log(data);
     } catch (err: any) {
       setError(err.message || "Something went wrong");
