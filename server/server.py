@@ -26,8 +26,10 @@ async def create_upload_file(file: UploadFile):
             f.write(file.file.read())
             if(f.name):
                 fileLoad(file.filename)
-                return {"message": "File saved successfully", "path": f"/uploads/{file.filename}","test":fileLoad}
+                return {"message": "File saved successfully", "path": f"/uploads/{file.filename}"}
         
     except Exception as e:
         return {"message": e.args}
     return {"filename": file.filename}
+
+

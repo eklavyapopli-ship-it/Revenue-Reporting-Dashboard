@@ -17,14 +17,14 @@ export default function FileUploadPage() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [chunks, setChunks] = useState<Chunk[]>([]);
+  const [chunks, setChunks] = useState<string | null>(null);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files?.length) return;
     setFile(e.target.files[0]);
     setSuccess(null);
     setError(null);
-    setChunks([]);
+    setChunks(null);
   };
 
   const uploadFile = async () => {
@@ -33,7 +33,7 @@ export default function FileUploadPage() {
     setLoading(true);
     setError(null);
     setSuccess(null);
-    setChunks([]);
+    setChunks(null);
 
     try {
       const formData = new FormData();
@@ -119,31 +119,26 @@ export default function FileUploadPage() {
 
         {/* Chunks Display Section - W-3/5 */}
         <div className="md:w-3/5 space-y-4">
-          {chunks && chunks.length === 0 ? (
-            <div className="rounded-2xl border bg-white p-6 text-gray-500">
-              No chunks to display. Upload a PDF to see the document chunks here.
-            </div>
-          ) : (
-            chunks?.map((chunk, i) => (
+        
+       
+          
               <div
-                key={i}
                 className="rounded-2xl border bg-white p-5 shadow-sm"
               >
                 <div className="mb-2 flex items-center justify-between">
                   <span className="text-xs text-gray-500">
-                    Page {chunk.metadata?.page ?? "—"}
+                  {chunks}
                   </span>
                   <span className="text-xs text-gray-400">
-                    {chunk.metadata?.title}
+                   
                   </span>
                 </div>
 
                 <p className="whitespace-pre-wrap text-sm leading-relaxed text-gray-800">
-                  {chunk.page_content}
+                 
                 </p>
               </div>
-            ))
-          )}
+       
         </div>
       </div>
     </main>
