@@ -65,9 +65,9 @@ export default function FileUploadPage() {
         Company Document Dashboard
       </h1>
 
-      <div className="flex flex-col md:flex-row gap-6">
+      <div className="flex flex-col place-items-end border  h-[70vh] md:flex-row gap-6">
         {/* Upload Section - W-2/5 */}
-        <div className="md:w-2/5 rounded-2xl border bg-white p-6 shadow-sm">
+        <div className="w-full  rounded-2xl border bg-white p-6 shadow-sm">
           <h2 className="text-lg font-semibold text-gray-900 mb-2">
             Upload Document
           </h2>
@@ -117,29 +117,8 @@ export default function FileUploadPage() {
           )}
         </div>
 
-        {/* Chunks Display Section - W-3/5 */}
-        <div className="md:w-3/5 space-y-4">
-        
-       
-          
-              <div
-                className="rounded-2xl border bg-white p-5 shadow-sm"
-              >
-                <div className="mb-2 flex items-center justify-between">
-                  <span className="text-xs text-gray-500">
-                  {chunks}
-                  </span>
-                  <span className="text-xs text-gray-400">
                    
-                  </span>
-                </div>
-
-                <p className="whitespace-pre-wrap text-sm leading-relaxed text-gray-800">
-                 
-                </p>
-              </div>
-       
-        </div>
+           
       </div>
     </main>
   );
